@@ -1,0 +1,19 @@
+body {
+    background-image: url(https://images.unsplash.com/photo-1525663018617-37753d540108?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e88962c7293d65e4c47af2b9c8f31701&auto=format&fit=crop&w=2734&q=80);
+    text-align: center;
+}
+
+h1 {
+    
+}
+
+.container {
+    margin-top: 20px;
+    background-color: rgba(137, 43, 226, 0.619);
+    color: white;
+}
+
+.gems img{
+    max-width: 100%;
+    max-height: 200px;
+}
