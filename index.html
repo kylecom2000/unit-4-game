@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- My style -->
     <link rel="stylesheet" href="assets/css/style.css">
-
-    <title>Crystal col-smlector!</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <title>Crystal Collector!</title>
 
 </head>
 <body>
@@ -44,51 +45,62 @@
         <br><br>
 
         <div class="row">
-            <div class="col-sm-6 random">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3 random">
                 <!-- random number to match -->
-                random number
+                <h2>Match This #</h2>
+                <h3 id="random">0</h3>
             </div>
-        
-            <div class="col-sm total">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2 score">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3>Wins:</h3>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3 id="wins">0</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3>Losses:</h3>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3 id="losses">0</h3>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3 playerTotal">
                 <!-- your total score is.... -->
-                gems add up number
+                <h2>Your #</h2>
+                <h3 id=playerTotal>0</h3>
             </div>  
+            <div class="col-sm-1"></div>
     
     
-            <div class="col-sm">
-                <div class="row">
-                    <div class="col-sm wins">
-                        <!-- wins -->
-                        wins
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm losses">
-                        <!-- Losses -->
-                        losses
-                    </div>
-                </div>
-            </div>
+            
+            
         </div>
 
         <br><br>
 
-        <div class="row">
-            <div class="col-sm-3 gems gem1">
+        <div class="row crystals">
+            <div class="col-sm-3">
                 <!-- 1st gem -->
-                <img src="assets/images/BlueGem.png" alt="Blue">
+                <button id="crystal0" class="button"><img src="assets/images/BlueGem.png" alt="Blue"></button>
             </div>
-            <div class="col-sm-3 gems gem2">
+            <div class="col-sm-3">
                 <!-- 2nd gem -->
-                <img src="assets/images/RedGem.png" alt="Red">
+                <button id="crystal1" class="button"><img src="assets/images/RedGem.png" alt="Red"></button>
             </div>
-            <div class="col-sm-3 gems gem3">
+            <div class="col-sm-3">
                 <!-- 3rd gem -->
-                <img src="assets/images/GreenGem.png" alt="Green">
+                <button id="crystal2" class="button"><img src="assets/images/GreenGem.png" alt="Green"></button>
             </div>
-            <div class="col-sm-3 gems gem4">
+            <div class="col-sm-3">
                 <!-- 4th gem -->
-                <img src="assets/images/YellowGem.png" alt="Yellow">
+                <button id="crystal3" class="button"><img src="assets/images/YellowGem.png" alt="Yellow"></button>
             </div>
         </div>
 
@@ -96,8 +108,8 @@
         
     </div>
     
-   
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js"></script>
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>

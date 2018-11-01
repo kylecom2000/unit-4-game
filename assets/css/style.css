@@ -3,17 +3,30 @@ body {
     text-align: center;
 }
 
-h1 {
-    
-}
-
 .container {
     margin-top: 20px;
     background-color: rgba(137, 43, 226, 0.619);
     color: white;
 }
 
-.gems img{
+.crystals img{
     max-width: 100%;
     max-height: 200px;
+}
+
+.crystals button {
+    background-color: rgba(137, 43, 226, 0);
+    border: none;
+}
+
+.random {
+    background-color: blue;
+}
+
+.score {
+    background-color: rgb(89, 38, 184);
+}
+
+.playerTotal {
+    background-color: blueviolet;
 }
