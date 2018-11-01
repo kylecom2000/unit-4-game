@@ -21,19 +21,14 @@
 
 // Crystal array instead of crystals on page?
 
-
-//variables
-var wins = 0;
-var losses = 0;
-var randomNumber;
-var playerTotal = "";
-
-
-
-
-
 // a function obejct to run the game.
 $(document).ready(function() {
+
+    //variables
+    var wins = 0;
+    var losses = 0;
+    var randomNumber;
+    var playerTotal = 0;
 
     // Generate random number 
     randomNumber = Math.floor(Math.random() * (120-20)) + 20;
@@ -52,18 +47,30 @@ $(document).ready(function() {
     $("#random").text(randomNumber);
 
     
-  
-
+    // Listen for button clicks
     $(".button").click(function(){
         //add value of button to playerTotal
-        playerTotal += $(this).val();
+        // parseInt because it just kept treating it as a string.
+        playerTotal += parseInt($(this).val());
+        // change player total on screen.
         $("#playerTotal").text(playerTotal);
     });
 
+    if (playerTotal === randomNumber) {
+        console.log("YOU WIN");
+        wins++;
+        // restart game
+    }
+
+    if (playerTotal > randomNumber) {
+        console.log("YOU LOSE");
+        losses++;
+        // restart game
+    }
 
 
 
-
+    $("#wins").text(wins);
 
 });
 
