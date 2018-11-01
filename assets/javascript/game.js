@@ -30,22 +30,28 @@ $(document).ready(function() {
     var randomNumber;
     var playerTotal = 0;
 
-    // Generate random number 
+    // Generate random number
+    function ranNum () {
     randomNumber = Math.floor(Math.random() * (120-20)) + 20;
     console.log(randomNumber);
-    
-    //give each button a value from a random number
+    $("#random").text(randomNumber);
+    }
+
+    //give each button a value from a random number, turn inito function to call later.
+    function crystalRandom() {
     for (var i = 0; i < 4; i++){
         var crystalNumber = Math.floor(Math.random() * 12) + 1;
         console.log(crystalNumber);
         //assign to each crystal value ID, crystal0, 1, 2, 3.
         $("#crystal" + i).attr('value', crystalNumber);
+        }
+        ranNum();
+        playerTotal = 0;
+        $("#playerTotal").text(playerTotal);
     }
 
-    //HTML IDs random, wins, losses, playerTotal
-    //  post random number to html
-    $("#random").text(randomNumber);
-
+    // Run random crystal number function immediately. 
+    crystalRandom();
     
     // Listen for button clicks
     $(".button").click(function(){
@@ -54,23 +60,37 @@ $(document).ready(function() {
         playerTotal += parseInt($(this).val());
         // change player total on screen.
         $("#playerTotal").text(playerTotal);
+
+        if (playerTotal === randomNumber) {
+            wins++;
+            $("#wins").text(wins);
+            console.log("YOU WIN");
+
+            setTimeout (function() {
+                alert("YOU WIN");
+            }, 1);
+
+            crystalRandom();
+            // restart game
+        }
+    
+        if (playerTotal > randomNumber) {
+            losses++;
+            $("#losses").text(losses);
+            console.log("YOU LOSE");
+            setTimeout (function() {
+            alert("YOU LOSE");
+            }, 1);
+            crystalRandom();
+            // restart game
+        }
     });
 
-    if (playerTotal === randomNumber) {
-        console.log("YOU WIN");
-        wins++;
-        // restart game
-    }
-
-    if (playerTotal > randomNumber) {
-        console.log("YOU LOSE");
-        losses++;
-        // restart game
-    }
 
 
 
-    $("#wins").text(wins);
+
+    
 
 });
 
