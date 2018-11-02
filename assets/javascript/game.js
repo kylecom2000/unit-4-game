@@ -34,9 +34,8 @@ $(document).ready(function() {
     function ranNum () {
     randomNumber = Math.floor(Math.random() * (120-20)) + 20;
     console.log(randomNumber);
-    $("#random").text(randomNumber);
+    
     }
-
     //give each button a value from a random number, turn inito function to call later.
     function crystalRandom() {
     for (var i = 0; i < 4; i++){
@@ -45,14 +44,16 @@ $(document).ready(function() {
         //assign to each crystal value ID, crystal0, 1, 2, 3.
         $("#crystal" + i).attr('value', crystalNumber);
         }
+        //run random number function
         ranNum();
+        // reset player total
         playerTotal = 0;
+        $("#random").text(randomNumber);
         $("#playerTotal").text(playerTotal);
+        
     }
-
     // Run random crystal number function immediately. 
     crystalRandom();
-    
     // Listen for button clicks
     $(".button").click(function(){
         //add value of button to playerTotal
@@ -60,38 +61,34 @@ $(document).ready(function() {
         playerTotal += parseInt($(this).val());
         // change player total on screen.
         $("#playerTotal").text(playerTotal);
+        
 
         if (playerTotal === randomNumber) {
             wins++;
-            $("#wins").text(wins);
             console.log("YOU WIN");
-
+            $("#wins").text(wins);
+            $("#playerTotal").text(playerTotal);
             setTimeout (function() {
                 alert("YOU WIN");
             }, 1);
-
-            crystalRandom();
-            // restart game
+            setTimeout (function() {
+                crystalRandom(); 
+             }, 1);
         }
-    
+
         if (playerTotal > randomNumber) {
             losses++;
-            $("#losses").text(losses);
             console.log("YOU LOSE");
+            $("#losses").text(losses);
+            $("#playerTotal").text(playerTotal);
             setTimeout (function() {
-            alert("YOU LOSE");
+                alert("YOU LOSE");
             }, 1);
-            crystalRandom();
-            // restart game
+            setTimeout (function() {
+               crystalRandom(); 
+            }, 1);
         }
     });
 
-
-
-
-
-    
-
+    crystalRandom();
 });
-
-
